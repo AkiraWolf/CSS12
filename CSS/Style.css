@@ -1,0 +1,89 @@
+  .wrapper {
+    padding: 100px 15px;
+    height: 100vh;
+  }
+  
+  .container {
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 100%;
+    border: 10px solid #999;
+    display: flex;
+  }
+  
+  .block {
+    height: 300px;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.842);
+    position: absolute;
+  }
+  
+  .red {
+    background-color: rgb(235, 118, 118);
+  }
+  .blue {
+    background-color: rgb(80, 91, 235);
+  }
+  .orange {
+    background-color: rgb(224, 158, 59);
+  }
+  .green {
+    background-color: rgb(113, 212, 113);
+  }
+  .purple {
+    background-color: rgb(205, 148, 231);
+  }
+  
+  /* ------------------------------------------------------------------- */
+  /* animation - анимация
+    перед началом работы с анимацией нужно указать кейфрейм для того, чтобы определить, что будет в начальной и конечной позиции
+    @keyframes move-block {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: calc(100% - 200px);
+    }
+  }
+
+    */
+
+  @keyframes move-block {
+    0% {
+      left: 0;
+    }
+    25% {
+      border-radius: 50%;
+    }
+    50% {
+      border-radius: 50%;
+      background-color: blue;
+    }
+    100% {
+      left: calc(100% - 200px);
+      border-radius: 50%;
+      background-color: blue;
+    }
+  }
+
+  .purple {
+    animation: move-block  4s infinite alternate;
+    /* animation-fill-mode: forwards; */
+    /* составляющие анимации
+        animation-name - имя нашей анимеции, заданной  кейфрейм
+        animstion-durtion - время анимации
+        animation-timing-function 
+        animation-iteraion-count - кол-во повторений анимации
+        animation-directiomn - каждое четное число повтореий анимация проигывается с конца
+        animation-fill-mode -  какие св-ва останутся у объекта после анимации
+        новые анимации пишутся через запятуюЫ
+    */
+  }
+
+  .purple:hover {
+    /* animation-play-state: paused; */
+    animation-name: none;
+  }
