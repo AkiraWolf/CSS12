@@ -6,85 +6,88 @@ body {
 
 .wrapper {
   padding: 50px;
-  height: 100%;
+  min-height: 100%;
 }
 
-.flexbox {
-  border: 20px solid rgb(231, 203, 172);
-  margin-bottom: 20px;
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.flexbox__item {
-  border: 20px solid rgb(143, 119, 91);
+.grid {
+  margin-bottom: 200px;
+  padding-bottom: 200px;
+  border-bottom: 10px solid #363636;
+  min-height: 100vh;
 }
 
-.flexbox__item-content {
-  background-color: rgb(83, 64, 44);
+.item {
+  border: 5px dashed #444;
+  font-size: 40px;
+  padding: .8em;
   text-align: center;
-  padding: 50px;
-  font-size: 3rem;
 }
 
-/* .flexbox__item:nth-child(2) .flexbox__item-content {
-  padding: 75px 50px;
-} */
+/* -------------------------------------------------------- */
+/* Grid - для управления вво всех плокостях
+  fr - единица измерения для грида
+  1fr - займет равное расстояние от грида
+*/
 
-.desc {
-  display: flex;
+/* ------ grid-1 ----- */
+
+.grid-1 {
+  display: grid;
+  /* grid-template-rows: auto auto;
+  grid-template-columns: 200px auto .7fr */
+  grid-template: auto auto / repeat(3, 1fr);
+}
+/* --- grid 2 ---- */
+
+.grid-2 {
+  display: grid;
+  grid-template: 
+  "header header" 1fr
+  "main aside" 5fr
+  "footer footer" 2fr
+  / 1fr 300px;
 }
 
-.desc__item {
-  display: flex;
-  align-items: center;
-  margin-right: 50px;
+.grid-2__item--header {
+  grid-area: header;
+}
+.grid-2__item--main {
+  grid-area: main;
+}
+.grid-2__item--aside {
+  grid-area: aside;
+}
+.grid-2__item--footer {
+  grid-area: footer;
 }
 
-.desc__color {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  border: 1px solid #fff;
+/* ------ grid 3 ------ */
+
+.grid-3 {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  grid-auto-flow: dense   ;
+  /* grid-auto-rows: 400px; */
+  /* grid-auto-columns: 170px;*/
 }
 
-.desc__color--f {
-  background-color: rgb(231, 203, 172);
-}
-.desc__color--i {
-  background-color: rgb(143, 119, 91);
-}
-.desc__color--c {
-  background-color: rgb(83, 64, 44);
+/* --- grid-4 ---- */
+
+.grid-4 {
+  display: grid;
+  grid-template: [row1]  1fr [row2] 1fr / 1fr 1fr 1fr;
 }
 
-/* --------------------------------------------------------- */
-
-.flexbox {
-  display: flex;
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* flex-wrap: wrap-reverse; */
-  flex-direction: column-reverse;
-  align-items: center;
-  height: 100%;
-}
-
-.flexbox__item {
-  /* flex-basis: 300px; */
-  width: 300px;
-}
-
-.flexbox__item:first-child {
-  /* order: 3;
-  align-self: end; */
-}
-
-.flexbox__item:nth-child(2) {
-  /* order: 2; */
-  /* flex: 1 0 300px; */
-  width: 100%;
-}
-
-.flexbox__item:last-child {
-  /* order: 1;
-  align-self: center; */
+.grid-4__item--3 {
+  /* grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 4; */
+  grid-row: 2 / 3;
+  grid-column: 2 / 4;
 }
